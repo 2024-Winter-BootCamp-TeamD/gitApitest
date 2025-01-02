@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>Organization List</title>
+</head>
+<body>
+    <h1>Organizations</h1>
+    <ul>
+        {% if organizations %}
+            {% for org in organizations %}
+                <li>
+                    <a href="{% url 'org_repos' org_name=org.login %}">{{ org.login }}</a>
+                </li>
+            {% endfor %}
+        {% else %}
+            <li>No organizations found or you are not authenticated.</li>
+        {% endif %}
+    </ul>
+</body>
+</html>
