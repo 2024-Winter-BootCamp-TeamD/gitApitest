@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,6 +37,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',  # 필요
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',  # GitHub 연동
+    'myapp',  # 앱 이름 추가
+]
+
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # 기본 인증
+    'allauth.account.auth_backends.AuthenticationBackend',  # allauth 인증
 ]
 
 MIDDLEWARE = [
@@ -47,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',  # 이 줄을 추가
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -54,7 +68,9 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,6 +84,23 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        'APP': {
+            'client_id': 'Ov23lieqqrWXoqBgoOrh',
+            'secret': '27bda30f52f342b5f490db5187f2b3ec48a68c66',
+            'key': ''
+        }
+    }
+}
+
+# settings.py
+
+GITHUB_CLIENT_ID = 'Ov23lieqqrWXoqBgoOrh'
+GITHUB_CLIENT_SECRET = '27bda30f52f342b5f490db5187f2b3ec48a68c66'
+GITHUB_REDIRECT_URI = 'http://127.0.0.1:8000/github/oauth/callback/'  # 예: http://localhost:8000/oauth/callback/
+GITHUB_WEBHOOK_URL = 'https://374d-175-210-241-78.ngrok-free.app/github/webhook/'  # 로컬에서 테스트 중인 웹훅 수신 URL
 
 
 # Database
