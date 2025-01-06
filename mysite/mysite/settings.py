@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-(t6xj4wyhfg2(m6r9fo4av=2cczghqx5-q02dsz7)7%8ayg67c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',  # 로컬 개발
+    'localhost',  # 로컬 개발
+    '374d-175-210-241-78.ngrok-free.app',  # ngrok 도메인 추가
+]
 
 
 # Application definition
@@ -101,6 +105,7 @@ GITHUB_CLIENT_ID = 'Ov23lieqqrWXoqBgoOrh'
 GITHUB_CLIENT_SECRET = '27bda30f52f342b5f490db5187f2b3ec48a68c66'
 GITHUB_REDIRECT_URI = 'http://127.0.0.1:8000/github/oauth/callback/'  # 예: http://localhost:8000/oauth/callback/
 GITHUB_WEBHOOK_URL = 'https://374d-175-210-241-78.ngrok-free.app/github/webhook/'  # 로컬에서 테스트 중인 웹훅 수신 URL
+
 
 
 # Database
