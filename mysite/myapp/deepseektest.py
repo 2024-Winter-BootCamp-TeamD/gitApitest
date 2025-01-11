@@ -2,7 +2,7 @@
 
 from openai import OpenAI
 
-client = OpenAI(api_key="sk-ff430533577f4170869415cb1ffb43e4", base_url="https://api.deepseek.com")
+client = OpenAI(api_key="api키 복붙하세요", base_url="https://api.deepseek.com")
 
 
 
