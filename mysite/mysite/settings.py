@@ -104,7 +104,7 @@ SOCIALACCOUNT_PROVIDERS = {
 GITHUB_CLIENT_ID = 'Ov23lieqqrWXoqBgoOrh'
 GITHUB_CLIENT_SECRET = '27bda30f52f342b5f490db5187f2b3ec48a68c66'
 GITHUB_REDIRECT_URI = 'http://127.0.0.1:8000/github/oauth/callback/'  # 예: http://localhost:8000/oauth/callback/
-GITHUB_WEBHOOK_URL = 'https://374d-175-210-241-78.ngrok-free.app/github/webhook/'  # 로컬에서 테스트 중인 웹훅 수신 URL
+GITHUB_WEBHOOK_URL = 'https://b6e8-175-210-241-78.ngrok-free.app/github/webhook/'  # 로컬에서 테스트 중인 웹훅 수신 URL
 
 
 
