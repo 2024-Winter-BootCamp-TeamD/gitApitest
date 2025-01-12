@@ -29,6 +29,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',  # 로컬 개발
     'localhost',  # 로컬 개발
     '374d-175-210-241-78.ngrok-free.app',  # ngrok 도메인 추가
+    'b6e8-175-210-241-78.ngrok-free.app'
 ]
 
 
